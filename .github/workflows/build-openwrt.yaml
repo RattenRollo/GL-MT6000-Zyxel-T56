@@ -96,9 +96,9 @@ jobs:
             make -j1 V=s
           }
           mkdir -p firmware
-          find ./bin -type f \( -iname 'openwrt-*-sysupgrade.bin' -or -iname 'config.buildinfo' -or -iname 'version.buildinfo' \) -exec mv -v {} ./firmware/ \; ||:
+          find ./bin -type f \( -iname 'openwrt-*-sysupgrade.itb' -or -iname 'config.buildinfo' -or -iname 'version.buildinfo' \) -exec mv -v {} ./firmware/ \; ||:
           mv .config firmware/full.config ||:
-          cd firmware && sha256sum openwrt-*-sysupgrade.bin >sha256sums ||:
+          cd firmware && sha256sum openwrt-*-sysupgrade.itb >sha256sums ||:
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v7.0.0
