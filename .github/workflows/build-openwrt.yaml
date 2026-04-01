@@ -1,4 +1,4 @@
-name: Build OpenWrt for GL-MT6000
+name: Build OpenWrt for EX5601-t0
 
 permissions:
   contents: write
@@ -14,7 +14,7 @@ on:
 
 env:
   REMOTE_REPOSITORY: pesa1234/openwrt
-  CONFIG_FILE: mt6000.config
+  CONFIG_FILE: ex5601-t0.config
   GH_TOKEN: ${{ github.token }}
 
 jobs:
@@ -103,7 +103,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v7.0.0
         with:
-          name: gl-mt6000-firmware
+          name: ex5601-t0-firmware
           path: firmware/*
 
       - name: Create release
@@ -116,12 +116,12 @@ jobs:
           - **Commit:** ${{ needs.check_commits.outputs.latest_commit_sha }}
           
           ### 📝 Build Information
-          - **Target:** [Flint 2 (GL-MT6000)](https://openwrt.org/toh/gl.inet/gl-mt6000)
+          - **Target:** [Zyxel T-56 (EX5601-t0)](https://openwrt.org/toh/zyxel/t-56)
           - **Configuration:** [${{ env.CONFIG_FILE }}](${{ env.CONFIG_FILE }})
           - **WiFi UCODE scripts**
           - **Wireguard VPN**
           - **Policy Based Routing**
-          - **Ad Block Fast**
+          - **Adguard Home**
           - **REMOVED:** odhcp, upnp, iptables, avahi, samba, usb storage..." --title "OpenWrt Custom Release for Flint 2 (${{ needs.check_commits.outputs.release_prefix }}-${RELEASE_DATE})" firmware/*
 
       - name: Clean up old releases
