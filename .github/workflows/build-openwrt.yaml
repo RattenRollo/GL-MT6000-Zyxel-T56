@@ -122,6 +122,8 @@ jobs:
           - **Wireguard VPN**
           - **Policy Based Routing**
           - **Adguard Home**
+          - **SQM**
+          - **Support for 5G Modem (FM350GL) using USB3 Interface**
           - **REMOVED:** odhcp, upnp, iptables, avahi, samba, usb storage..." --title "OpenWrt Custom Release for T-56 (${{ needs.check_commits.outputs.release_prefix }}-${RELEASE_DATE})" firmware/*
 
       - name: Clean up old releases
